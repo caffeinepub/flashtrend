@@ -1,0 +1,131 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-a-main-news-feed-page-displaying-news-articles-in-card-format-with-title-summary-category-badge-timestamp-and-share-count",
+      "featureTitle": "Create a main news feed page displaying news articles in card format with title, summary, category badge, timestamp, and share count",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/NewsCard.tsx",
+        "frontend/src/pages/NewsFeedPage.tsx",
+        "frontend/src/utils/timeFormat.ts"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-category-filter-tabs-all-politics-viral-trending-social-at-the-top-of-the-news-feed-that-filter-displayed-articles",
+      "featureTitle": "Add category filter tabs (All, Politics, Viral, Trending, Social) at the top of the news feed that filter displayed articles",
+      "files": [
+        "frontend/src/components/CategoryTabs.tsx",
+        "frontend/src/pages/NewsFeedPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-infinite-scroll-or-pagination-controls-for-the-news-feed-to-load-articles-10-at-a-time",
+      "featureTitle": "Implement infinite scroll or pagination controls for the news feed to load articles 10 at a time",
+      "files": [
+        "frontend/src/components/PaginationControls.tsx",
+        "frontend/src/pages/NewsFeedPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-a-share-button-to-each-news-card-that-copies-the-article-summary-and-title-to-clipboard-and-increments-the-share-count",
+      "featureTitle": "Add a share button to each news card that copies the article summary and title to clipboard and increments the share count",
+      "files": [
+        "frontend/src/components/NewsCard.tsx",
+        "frontend/src/hooks/useShareArticle.ts"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-design-a-distinctive-visual-theme-with-bold-typography-bright-accent-colors-avoiding-blue-and-purple-and-card-based-layouts-that-convey-speed-and-modernity-appropriate-for-a-fast-paced-news-application",
+      "featureTitle": "Design a distinctive visual theme with bold typography, bright accent colors (avoiding blue and purple), and card-based layouts that convey speed and modernity appropriate for a fast-paced news application",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/Layout.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-an-admin-interface-for-adding-new-news-articles-with-fields-for-title-summary-with-280-character-limit-category-selection-and-source",
+      "featureTitle": "Create an admin interface for adding new news articles with fields for title, summary (with 280 character limit), category selection, and source",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/CreateArticleForm.tsx",
+        "frontend/src/components/NewsCard.tsx",
+        "frontend/src/pages/AdminPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-10"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

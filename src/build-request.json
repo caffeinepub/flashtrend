@@ -1,0 +1,230 @@
+{
+  "kind": "build_request",
+  "title": "Build FlashTrend short news application with viral updates and trending stories",
+  "projectName": "FlashTrend",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a backend data model for news articles with fields: id, title, summary (short text limited to 280 characters), category (politics, viral, trending, social), timestamp, source, and shareCount",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Short and easy-to-read news updates",
+          "Latest political and social trending topics",
+          "Real-time viral story coverage"
+        ]
+      },
+      "acceptanceCriteria": [
+        "News article model stores all required fields",
+        "Summary text is limited to 280 characters maximum",
+        "Category field accepts only: politics, viral, trending, social",
+        "Timestamp is automatically set on article creation"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement backend methods to create, read, update, and delete news articles with pagination support (10 articles per page)",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Fast loading and smooth performance"
+        ]
+      },
+      "acceptanceCriteria": [
+        "CRUD operations work correctly for news articles",
+        "Pagination returns exactly 10 articles per page",
+        "Articles are sorted by timestamp (newest first)"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Add backend method to filter news articles by category (politics, viral, trending, social)",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Latest political and social trending topics",
+          "Whether you are interested in politics, viral trends, or daily updates"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Filter returns only articles matching the specified category",
+        "Filter works with pagination",
+        "Empty categories return empty results without errors"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Implement backend method to increment shareCount when a news article is shared",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Easy sharing option for social media"
+        ]
+      },
+      "acceptanceCriteria": [
+        "shareCount increments by 1 when share method is called",
+        "Share count persists across updates",
+        "Method returns updated article with new shareCount"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Create a main news feed page displaying news articles in card format with title, summary, category badge, timestamp, and share count",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Short and easy-to-read news updates",
+          "Clean and modern user interface"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Each news card displays all required fields clearly",
+        "Cards are visually distinct and easy to scan",
+        "Category badges use color coding for visual distinction",
+        "Timestamps show relative time (e.g., '2 hours ago')"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Add category filter tabs (All, Politics, Viral, Trending, Social) at the top of the news feed that filter displayed articles",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Latest political and social trending topics",
+          "Whether you are interested in politics, viral trends, or daily updates"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Clicking a category tab filters the news feed to show only that category",
+        "All tab shows articles from all categories",
+        "Active tab is visually highlighted",
+        "Filter applies immediately without page reload"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Implement infinite scroll or pagination controls for the news feed to load articles 10 at a time",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Fast loading and smooth performance"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Additional articles load when user scrolls to bottom or clicks next page",
+        "Loading state is shown while fetching new articles",
+        "No duplicate articles appear in the feed",
+        "Performance remains smooth with large article counts"
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Add a share button to each news card that copies the article summary and title to clipboard and increments the share count",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Easy sharing option for social media"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Share button is clearly visible on each card",
+        "Clicking share copies formatted text to clipboard",
+        "Visual feedback confirms successful copy",
+        "Share count updates immediately in the UI",
+        "Backend shareCount increments on share action"
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Design a distinctive visual theme with bold typography, bright accent colors (avoiding blue and purple), and card-based layouts that convey speed and modernity appropriate for a fast-paced news application",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Clean and modern user interface",
+          "fast, lightweight, and user-friendly",
+          "Fast loading and smooth performance"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Visual theme uses bold, readable typography for headlines",
+        "Color scheme excludes blue and purple, uses energetic accent colors",
+        "Design conveys speed and immediacy through visual choices",
+        "Card layouts are clean with clear visual hierarchy",
+        "Theme is applied consistently across all components"
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "text": "Create an admin interface for adding new news articles with fields for title, summary (with 280 character limit), category selection, and source",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Short and easy-to-read news updates",
+          "FlashTrend focuses on delivering authentic and engaging content"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Form includes all required fields with proper validation",
+        "Summary field enforces 280 character maximum",
+        "Category dropdown includes all valid options",
+        "Form submission creates new article in backend",
+        "Success/error feedback is shown after submission",
+        "Form clears after successful submission"
+      ]
+    }
+  ],
+  "constraints": [
+    "Push notifications are not supported on this platform and should not be implemented",
+    "Real-time updates via WebSockets are not supported; use polling or manual refresh instead",
+    "Summary text must be limited to 280 characters maximum to ensure short, scannable content"
+  ],
+  "nonGoals": [
+    "Third-party news API integration or external content feeds",
+    "User authentication or personalized news feeds",
+    "Comments or user-generated content on articles",
+    "Advanced search functionality",
+    "Multiple language support",
+    "Mobile app deployment (web-only implementation)",
+    "Email or SMS notifications",
+    "Advertisement integration"
+  ],
+  "imageRequirements": {
+    "required": [
+      "Modern lightning bolt logo icon in energetic colors for FlashTrend brand identity (flashtrend-logo.dim_256x256.png)",
+      "Abstract dynamic wave pattern background suggesting speed and movement in warm gradient colors (hero-background.dim_1920x400.png)",
+      "Set of 4 small category icons: megaphone for politics, fire for viral, trending arrow, and speech bubble for social in matching style (category-politics.dim_64x64.png, category-viral.dim_64x64.png, category-trending.dim_64x64.png, category-social.dim_64x64.png)"
+    ],
+    "edits": []
+  }
+}

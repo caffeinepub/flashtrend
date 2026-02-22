@@ -1,0 +1,17 @@
+{
+  "frontend/src/App.tsx": "Main application component with TanStack Router setup, theme provider, and profile setup modal integration for authenticated users without profiles.",
+  "frontend/src/components/Layout.tsx": "Main layout component with sticky header featuring FlashTrend branding, hero section with background image, authentication controls, admin navigation, and footer with social links and attribution.",
+  "frontend/src/components/ProfileSetup.tsx": "Modal dialog component that prompts new users to enter their name on first login, preventing dismissal until profile is created.",
+  "frontend/src/pages/NewsFeedPage.tsx": "Main news feed page displaying paginated articles with category filtering, loading states, and authentication checks.",
+  "frontend/src/pages/AdminPage.tsx": "Admin-only page for creating news articles with access control checks and loading states.",
+  "frontend/src/components/CategoryTabs.tsx": "Tab navigation component for filtering news by category (All, Politics, Viral, Trending, Social) with icons and active state styling.",
+  "frontend/src/components/NewsCard.tsx": "Reusable card component displaying individual news articles with title, summary, category badge, timestamp, share count, and share functionality.",
+  "frontend/src/components/CategoryIcon.tsx": "Component that maps category types to their corresponding icon images from generated assets.",
+  "frontend/src/components/PaginationControls.tsx": "Navigation controls for paginated news feed with previous/next buttons and current page indicator.",
+  "frontend/src/components/CreateArticleForm.tsx": "Form component for admin users to create news articles with validation, character counter for summary field, and category selection with icons.",
+  "frontend/src/hooks/useQueries.ts": "Custom React Query hooks for all backend operations including user profiles, admin checks, article CRUD, pagination, filtering, and sharing.",
+  "frontend/src/hooks/useShareArticle.ts": "Custom hook wrapping the share article mutation with simplified interface for copying to clipboard and incrementing share count.",
+  "frontend/src/utils/timeFormat.ts": "Utility function to format timestamps as relative time strings (e.g., \"2 hours ago\", \"3 days ago\").",
+  "frontend/src/index.css": "Global styles with OKLCH color system using energetic warm colors (orange, red, yellow, green) avoiding blue/purple, with bold typography and modern design tokens.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with custom FlashTrend color palette for categories, bold font weights, and consistent design system tokens."
+}

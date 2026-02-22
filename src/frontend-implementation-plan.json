@@ -1,0 +1,183 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "FlashTrend Frontend Implementation - Short News Application",
+  "requirements": [
+    {
+      "id": "REQ-5",
+      "summary": "Create main news feed page displaying news articles in card format with all article details",
+      "acceptanceCriteria": [
+        "Each news card displays all required fields clearly",
+        "Cards are visually distinct and easy to scan",
+        "Category badges use color coding for visual distinction",
+        "Timestamps show relative time (e.g., '2 hours ago')"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/NewsFeedPage.tsx",
+          "operation": "create",
+          "description": "Create main news feed page component that fetches and displays paginated news articles using backend methods getPaginatedArticles and getArticlesByCategory. Display articles in card format showing title, summary, category badge with color coding, relative timestamp, and share count. Integrate category filter tabs and pagination controls."
+        },
+        {
+          "path": "frontend/src/components/NewsCard.tsx",
+          "operation": "create",
+          "description": "Create reusable news card component that displays a single news article with title, summary (max 280 chars), category badge, relative timestamp using a time formatting utility, share count, and share button. Use energetic colors for category badges (avoiding blue/purple) and bold typography for headlines."
+        },
+        {
+          "path": "frontend/src/utils/timeFormat.ts",
+          "operation": "create",
+          "description": "Create utility function to format timestamps as relative time (e.g., '2 hours ago', '3 days ago') for display in news cards."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire NewsFeedPage into the app router as the main route and set up navigation. Ensure authorization component is integrated so users must log in before seeing application data."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Add category filter tabs (All, Politics, Viral, Trending, Social) that filter displayed articles",
+      "acceptanceCriteria": [
+        "Clicking a category tab filters the news feed to show only that category",
+        "All tab shows articles from all categories",
+        "Active tab is visually highlighted",
+        "Filter applies immediately without page reload"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/CategoryTabs.tsx",
+          "operation": "create",
+          "description": "Create category filter tabs component with options: All, Politics, Viral, Trending, Social. Highlight active tab visually and emit filter change events. When a category is selected, call backend getArticlesByCategory method; for All, call getPaginatedArticles. Use energetic colors (avoiding blue/purple) consistent with theme."
+        },
+        {
+          "path": "frontend/src/pages/NewsFeedPage.tsx",
+          "operation": "modify",
+          "description": "Integrate CategoryTabs component at the top of the news feed. Manage active category state and re-fetch articles when category changes using the appropriate backend method (getArticlesByCategory or getPaginatedArticles)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Implement pagination controls for the news feed to load articles 10 at a time",
+      "acceptanceCriteria": [
+        "Additional articles load when user scrolls to bottom or clicks next page",
+        "Loading state is shown while fetching new articles",
+        "No duplicate articles appear in the feed",
+        "Performance remains smooth with large article counts"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/PaginationControls.tsx",
+          "operation": "create",
+          "description": "Create pagination controls component with next/previous buttons and page indicator. Call backend getPaginatedArticles method with the current page number. Show loading state while fetching and prevent duplicate fetches."
+        },
+        {
+          "path": "frontend/src/pages/NewsFeedPage.tsx",
+          "operation": "modify",
+          "description": "Integrate PaginationControls component and manage pagination state. Fetch 10 articles per page using backend getPaginatedArticles method. Handle loading states and ensure no duplicate articles are displayed when navigating pages."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Add share button to each news card that copies article text to clipboard and increments share count",
+      "acceptanceCriteria": [
+        "Share button is clearly visible on each card",
+        "Clicking share copies formatted text to clipboard",
+        "Visual feedback confirms successful copy",
+        "Share count updates immediately in the UI",
+        "Backend shareCount increments on share action"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/NewsCard.tsx",
+          "operation": "modify",
+          "description": "Add share button to the news card that copies the article title and summary to clipboard when clicked. Call backend shareNewsArticle method to increment shareCount. Show visual feedback (toast/message) on successful copy and update the displayed share count immediately in the UI."
+        },
+        {
+          "path": "frontend/src/hooks/useShareArticle.ts",
+          "operation": "create",
+          "description": "Create custom hook that handles sharing logic: copies formatted article text (title + summary) to clipboard using navigator.clipboard API, calls backend shareNewsArticle method to increment count, and provides success/error states for UI feedback."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Design distinctive visual theme with bold typography, bright accent colors (avoiding blue and purple), and card-based layouts conveying speed and modernity",
+      "acceptanceCriteria": [
+        "Visual theme uses bold, readable typography for headlines",
+        "Color scheme excludes blue and purple, uses energetic accent colors",
+        "Design conveys speed and immediacy through visual choices",
+        "Card layouts are clean with clear visual hierarchy",
+        "Theme is applied consistently across all components"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Define global theme variables with bold typography (use system fonts or import energetic sans-serif font), bright accent colors avoiding blue/purple (consider orange, red, yellow, green spectrum), and CSS custom properties for consistent spacing, shadows, and transitions that convey speed and modernity. Reference generated images: frontend/public/assets/generated/flashtrend-logo.dim_256x256.png, frontend/public/assets/generated/hero-background.dim_1920x400.png."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend Tailwind theme with custom color palette (energetic colors avoiding blue/purple), bold font weights, and spacing scale. Configure colors for category badges (politics, viral, trending, social) using distinct energetic hues. Set up card component utilities for consistent layouts."
+        },
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "create",
+          "description": "Create main layout component with header displaying FlashTrend branding using frontend/public/assets/generated/flashtrend-logo.dim_256x256.png and hero section with frontend/public/assets/generated/hero-background.dim_1920x400.png as background. Include login/logout button using authorization component. Apply consistent theme styling to all child content."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wrap all routes with Layout component to ensure consistent theme application across the application."
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Create admin interface for adding new news articles with form validation and 280 character summary limit",
+      "acceptanceCriteria": [
+        "Form includes all required fields with proper validation",
+        "Summary field enforces 280 character maximum",
+        "Category dropdown includes all valid options",
+        "Form submission creates new article in backend",
+        "Success/error feedback is shown after submission",
+        "Form clears after successful submission"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/AdminPage.tsx",
+          "operation": "create",
+          "description": "Create admin page component that displays the news article creation form. Use authorization component to restrict access to admin users only (check isCallerAdmin backend method). Show AccessDeniedScreen for non-admin users. Verify the authorization component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/CreateArticleForm.tsx",
+          "operation": "create",
+          "description": "Create form component for adding news articles with fields: title (text input), summary (textarea with 280 character counter and validation), category (dropdown with options: politics, viral, trending, social matching backend Category enum), and source (text input). Call backend createNewsArticle method on submission. Show success/error feedback using toast notifications and clear form after successful creation."
+        },
+        {
+          "path": "frontend/src/hooks/useCreateArticle.ts",
+          "operation": "create",
+          "description": "Create custom hook that wraps backend createNewsArticle method call with loading/error states and form validation logic including 280 character limit enforcement for summary field."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add AdminPage route to the router with admin-only guard. Include navigation link to admin page in the Layout header that is only visible to admin users."
+        },
+        {
+          "path": "frontend/src/components/CategoryIcons.tsx",
+          "operation": "create",
+          "description": "Create component that maps category types to their corresponding icon images: frontend/public/assets/generated/category-politics.dim_64x64.png for politics, frontend/public/assets/generated/category-viral.dim_64x64.png for viral, frontend/public/assets/generated/category-trending.dim_64x64.png for trending, and frontend/public/assets/generated/category-social.dim_64x64.png for social. Use these icons in category badges throughout the application."
+        },
+        {
+          "path": "frontend/src/components/NewsCard.tsx",
+          "operation": "modify",
+          "description": "Integrate CategoryIcons component to display the appropriate category icon next to the category badge in each news card."
+        }
+      ]
+    }
+  ]
+}
